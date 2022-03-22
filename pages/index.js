@@ -9,6 +9,8 @@ import Login from "../components/Login";
 import Modal from "@material-tailwind/react/Modal";
 import ModalBody from "@material-tailwind/react/ModalBody";
 import ModalFooter from "@material-tailwind/react/ModalFooter";
+import { db } from "../firebase";
+import firebase from "firebase/compat/app";
 
 export default function Home() {
     const [session] = useSession();
@@ -17,7 +19,17 @@ export default function Home() {
         
     if (!session) return <Login />;
 
-    const createDocument = () => {};
+    const createDocument = () => {
+        if (!input) return;
+
+        db.collection("userDocs").doc(session.user.email).collection("docs").add({
+            fileName: input,
+            timestamp: firebase.firestore.FieldValue.serverTimestamp()
+        });
+
+        setInput("");
+        setShowModal(false);
+    };
 
     const modal = (
         <Modal 
