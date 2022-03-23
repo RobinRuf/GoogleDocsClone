@@ -20,7 +20,7 @@ function Header() {
       </Button>
 
       <Icon name="description" size="5xl" color="blue" />
-      <h1 className="hidden md:inline-flex ml-2 text-gray-700 text-2xl">
+      <h1 className="ml-2 text-gray-700 text-2xl">
         Docs
       </h1>
 
@@ -29,17 +29,6 @@ function Header() {
         <Icon name="search" size="3xl" color="gray" />
         <input type="text" placeholder="Search" className="flex-grow px-5 text-base bg-transparent outline-none" />
       </div>
-
-      <Button
-        color="gray"
-        buttonType="outline"
-        rounded={true}
-        iconOnly={true}
-        ripple="dark"
-        className="hidden md:inline-flex ml-5 md:ml-20 h-20 w-20 border-0"
-      >
-        <Icon name="apps" size="3xl" color="gray" />
-      </Button>
 
       <img
         onClick={signOut}
